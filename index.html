@@ -1,208 +1,46 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-
-<!-- 🔥 모바일 필수 -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Micro-LED & 로또 추천기</title>
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #111;
-    color: white;
-    padding: 30px 15px;
-}
-
-header h1 {
-    font-size: 28px;
-}
-
-section {
-    padding: 20px;
-}
-
-.box {
-    background: white;
-    margin: 20px auto;
-    padding: 25px;
-    width: 95%;
-    max-width: 800px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-}
-
-button {
-    padding: 14px 30px;
-    font-size: 18px;
-    background-color: #0078ff;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 8px;
-}
-
-button:hover {
-    background-color: #0056cc;
-}
-
-.reset-btn {
-    background-color: #ff4444;
-}
-
-.reset-btn:hover {
-    background-color: #cc0000;
-}
-
-.ball {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 50%;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    margin: 6px;
-}
-
-footer {
-    background: #222;
-    color: white;
-    padding: 15px;
-    margin-top: 40px;
-}
-
-/* 🔥 모바일 전용 최적화 */
-@media (max-width: 600px) {
-
-    header h1 {
-        font-size: 22px;
-    }
-
-    .box {
-        padding: 20px;
-    }
-
-    button {
-        width: 90%;
-        font-size: 20px;
-    }
-
-    .ball {
-        width: 55px;
-        height: 55px;
-        line-height: 55px;
-        font-size: 20px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro-LED & 로또 추천기</title>
+    <!-- CSS Linking -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
     <h1>Micro-LED 기술 소개</h1>
     <p>차세대 디스플레이 혁신 기술</p>
+    <button id="theme-toggle">🌙 다크 모드</button>
 </header>
 
 <section>
+    <div class="box">
+        <h2>Micro-LED란?</h2>
+        <p>
+            Micro-LED는 초소형 LED를 개별 픽셀로 사용하는 차세대 디스플레이 기술입니다.
+            OLED보다 밝기와 수명이 뛰어나고 번인 현상이 거의 없습니다.
+            차세대 TV, 스마트워치, AR기기에 활용됩니다.
+        </p>
+    </div>
 
-<div class="box">
-    <h2>Micro-LED란?</h2>
-    <p>
-        Micro-LED는 초소형 LED를 개별 픽셀로 사용하는 차세대 디스플레이 기술입니다.
-        OLED보다 밝기와 수명이 뛰어나고 번인 현상이 거의 없습니다.
-        차세대 TV, 스마트워치, AR기기에 활용됩니다.
-    </p>
-</div>
-
-<div class="box">
-    <h2>🎰 로또 번호 추천기 (중복 조합 방지)</h2>
-
-    <button onclick="generateOne()">1게임 추천</button>
-    <button onclick="generateFive()">5게임 추천</button>
-    <button class="reset-btn" onclick="resetLotto()">초기화</button>
-
-    <div id="lottoResult"></div>
-</div>
-
+    <div class="box">
+        <h2>🎰 로또 번호 추천기 (중복 조합 방지)</h2>
+        <div class="controls">
+            <button onclick="generateOne()">1게임 추천</button>
+            <button onclick="generateFive()">5게임 추천</button>
+            <button class="reset-btn" onclick="resetLotto()">초기화</button>
+        </div>
+        <div id="lottoResult"></div>
+    </div>
 </section>
 
 <footer>
     ⓒ 2026 Micro-LED & Lotto Web Practice
 </footer>
 
-<script>
-let history = [];
-
-function getColor(num) {
-    if (num <= 10) return "#fbc400";
-    if (num <= 20) return "#69c8f2";
-    if (num <= 30) return "#ff7272";
-    if (num <= 40) return "#aaa";
-    return "#b0d840";
-}
-
-function generateNumbers() {
-    let numbers;
-    let key;
-
-    do {
-        numbers = [];
-
-        while (numbers.length < 6) {
-            let num = Math.floor(Math.random() * 45) + 1;
-            if (!numbers.includes(num)) {
-                numbers.push(num);
-            }
-        }
-
-        numbers.sort((a,b) => a-b);
-        key = numbers.join(",");
-
-    } while (history.includes(key));
-
-    history.push(key);
-    return numbers;
-}
-
-function displayNumbers(numbers) {
-    let html = "<div>";
-
-    numbers.forEach(num => {
-        html += `<span class="ball" style="background:${getColor(num)}">${num}</span>`;
-    });
-
-    html += "</div><br>";
-    document.getElementById("lottoResult").innerHTML += html;
-}
-
-function generateOne() {
-    displayNumbers(generateNumbers());
-}
-
-function generateFive() {
-    for (let i = 0; i < 5; i++) {
-        displayNumbers(generateNumbers());
-    }
-}
-
-function resetLotto() {
-    history = [];
-    document.getElementById("lottoResult").innerHTML = "";
-}
-</script>
-
+<!-- JS Linking -->
+<script src="main.js"></script>
 </body>
 </html>
