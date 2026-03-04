@@ -18,11 +18,12 @@ A web application introducing Micro-LED technology and providing a Lotto number 
 - **Monetization & Analytics & Compliance:**
     - Google AdSense integration (Meta tag, Script, ads.txt).
     - **Google Analytics 4 (GA4) integration** (G-B8SJL64YMD tracking tag).
+    - **Microsoft Clarity integration** (vqf2g45jto tracking script).
     - **Privacy Policy** (`privacy.html`) and **Terms of Service** (`terms.html`) pages included.
     - Contact form integration.
 
 ## Change Log (AdSense & Analytics Optimization)
-- **Analytics:** Added Google Analytics (gtag.js) to all HTML pages for traffic monitoring.
+- **Analytics:** Added Google Analytics (gtag.js) and **Microsoft Clarity** to all HTML pages for comprehensive traffic and behavior monitoring.
 - **Content Expansion:** Added substantial text content to `index.html` and `animal-test.html` to meet AdSense "Valuable Inventory" standards.
 - **Legal Pages:** Created `privacy.html` and `terms.html` and linked them in the footer.
 - **Styling:** Added `article` styling in `style.css` for better readability of text sections.
