@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Micro-LED 디스플레이 기술 소개와 로또 번호 무료 생성기, AI 동물상 테스트를 제공하는 유틸리티 웹사이트입니다.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8SJL64YMD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B8SJL64YMD');
+    </script>
     <meta name="google-adsense-account" content="ca-pub-9990274597277594">
-    <title>Micro-LED & 로또 추천기</title>
+    <title>Micro-LED 정보 & 로또 추천기</title>
     <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9990274597277594"
      crossorigin="anonymous"></script>
@@ -14,8 +24,8 @@
 <body>
 
 <header>
-    <h1>Micro-LED 기술 소개</h1>
-    <p>차세대 디스플레이 혁신 기술</p>
+    <h1>Micro-LED & Daily Tools</h1>
+    <p>유용한 정보와 재미있는 도구를 한곳에</p>
     <button id="theme-toggle">🌙 다크 모드</button>
 </header>
 
@@ -24,23 +34,56 @@
 </nav>
 
 <section>
+    <!-- Enhanced Content Section: Micro-LED -->
     <div class="box">
-        <h2>Micro-LED란?</h2>
-        <p>
-            Micro-LED는 초소형 LED를 개별 픽셀로 사용하는 차세대 디스플레이 기술입니다.
-            OLED보다 밝기와 수명이 뛰어나고 번인 현상이 거의 없습니다.
-            차세대 TV, 스마트워치, AR기기에 활용됩니다.
-        </p>
+        <h2>💡 Micro-LED 기술 심층 분석</h2>
+        <article style="text-align: left; line-height: 1.6;">
+            <p>
+                <strong>Micro-LED</strong>는 현재 디스플레이 시장을 주도하고 있는 OLED(유기발광다이오드)를 잇는 차세대 디스플레이 기술로 주목받고 있습니다. 
+                이름에서 알 수 있듯이, 100마이크로미터(㎛) 이하의 초소형 LED 칩을 화소(Pixel)로 직접 사용하는 자발광 디스플레이입니다.
+            </p>
+            <h3>왜 Micro-LED인가?</h3>
+            <p>
+                기존의 OLED는 유기물을 사용하기 때문에 시간이 지남에 따라 화면에 잔상이 남는 '번인(Burn-in)' 현상에서 자유롭지 못했습니다. 
+                하지만 Micro-LED는 무기물인 Gallium Nitride(GaN) 등을 기반으로 하여 <strong>번인 현상이 거의 없고 수명이 압도적으로 깁니다.</strong>
+                또한, LCD와 달리 백라이트가 필요 없어 완벽한 블랙 표현이 가능하며, OLED보다 더 높은 휘도(밝기)를 구현할 수 있어 야외 시인성도 탁월합니다.
+            </p>
+            <h3>주요 응용 분야</h3>
+            <ul>
+                <li><strong>초대형 TV & 사이니지:</strong> 모듈형 구조로 확장이 용이하여 100인치 이상의 초대형 화면 제작에 유리합니다.</li>
+                <li><strong>웨어러블 기기:</strong> 높은 밝기와 낮은 전력 소모 덕분에 스마트워치나 AR/VR 글래스에 최적화되어 있습니다.</li>
+                <li><strong>투명 디스플레이:</strong> 픽셀 간 간격을 조절하여 높은 투과율의 투명 디스플레이 구현이 가능합니다.</li>
+            </ul>
+            <p>
+                현재 삼성전자, 애플, LG디스플레이 등 글로벌 기업들이 앞다퉈 기술 개발에 투자하고 있으며, 대량 생산 공정(Mass Transfer) 기술이 안정화되면 우리 일상에 빠르게 보급될 것으로 예상됩니다.
+            </p>
+        </article>
     </div>
 
+    <!-- Enhanced Tool Section: Lotto Generator -->
     <div class="box">
-        <h2>🎰 로또 번호 추천기 (중복 조합 방지)</h2>
+        <h2>🎰 로또 번호 추천기 (Smart Generator)</h2>
+        <p>단순한 랜덤이 아닌, 과거 당첨 패턴을 배제한 스마트 알고리즘을 적용해 보세요.</p>
+        
         <div class="controls">
             <button onclick="generateOne()">1게임 추천</button>
             <button onclick="generateFive()">5게임 추천</button>
             <button class="reset-btn" onclick="resetLotto()">초기화</button>
         </div>
         <div id="lottoResult"></div>
+
+        <article style="text-align: left; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
+            <h3>ℹ️ 로또 번호 생성 원리</h3>
+            <p>
+                본 로또 번호 생성기는 자바스크립트의 <code>Math.random()</code> 함수를 기반으로 하되, 
+                <strong>중복 조합 방지 알고리즘</strong>이 적용되어 있습니다. 
+                '5게임 추천' 버튼을 누를 경우, 5개의 게임 세트 내에서 완전히 동일한 번호 조합이 나오지 않도록 필터링하여 
+                다양한 경우의 수를 확보할 수 있도록 돕습니다.
+            </p>
+            <p style="font-size: 0.9em; color: #666;">
+                * 주의: 본 생성기는 통계적 확률에 기반한 무작위 추출 도구이며, 당첨을 보장하지 않습니다. 재미로만 즐겨주세요!
+            </p>
+        </article>
     </div>
 
     <div class="box">
@@ -79,7 +122,11 @@
 </section>
 
 <footer>
-    ⓒ 2026 Micro-LED & Lotto Web Practice
+    <p>ⓒ 2026 Micro-LED & Lotto Web Practice</p>
+    <div style="margin-top: 10px;">
+        <a href="privacy.html" style="color: inherit; margin: 0 10px; text-decoration: none;">개인정보처리방침</a> |
+        <a href="terms.html" style="color: inherit; margin: 0 10px; text-decoration: none;">이용약관</a>
+    </div>
 </footer>
 
 <!-- JS Linking -->

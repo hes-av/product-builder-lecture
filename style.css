@@ -236,6 +236,42 @@ footer {
     font-size: 1.1rem;
 }
 
+/* Article & Content Typography */
+article {
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+article h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+}
+
+article h4 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+article p {
+    margin-bottom: 15px;
+    word-break: keep-all;
+}
+
+article ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+article li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+}
+
 /* Responsive Optimization */
 @media (max-width: 600px) {
     header h1 {
